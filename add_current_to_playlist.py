@@ -5,12 +5,13 @@ import spotipy.util as util
 client_id = '22dc1d51502945e58fcb78c2dbd73be0'
 client_secret = '499aab7e66144e9fa70166be7c3b177b'
 client_uri = 'https://www.google.com/'
-scopes = 'user-modify-playback-state, user-read-currently-playing, playlist-modify-private, playlist-modify-public'
+scopes = 'user-modify-playback-state, user-read-currently-playing, playlist-modify-public'
 
-token = util.prompt_for_user_token('dryodaswag', scope=scopes, client_id=client_id, client_secret=client_secret, redirect_uri=client_uri)
+token = util.prompt_for_user_token('dryodaswag', scope=scopes, client_id=client_id, client_secret=client_secret, redirect_uri=client_uri) 
 
 spotipyObject = spotipy.Spotify(auth=token)
-def add_current_to_playlist(spotipyObject):
+
+def add_current_to_playlist(spotipyObject: spotipy.Spotify):
     song_uri_list = []
     current_song = spotipyObject.current_user_playing_track()
     song_uri_list.append(current_song['item']['uri'])
