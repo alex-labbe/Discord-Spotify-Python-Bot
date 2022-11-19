@@ -42,7 +42,7 @@ class Spotify_Controller(commands.Cog):
 
         if playlist_name not in playlist_dict:
             #not a playlist in your library
-            await ctx.send('That playlist is not in your library. Please try again daddy.')
+            await ctx.send('That playlist is not in your library. Please try again.')
         else:
             self.spotipyObject.playlist_add_items(playlist_id=playlist_dict[playlist_name], items=song_uri_list)
             await ctx.send(f'Added {current_song_name} to {playlist_name}')
